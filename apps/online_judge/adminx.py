@@ -1,7 +1,7 @@
 import xadmin
 from xadmin import views
 
-from .models import User, VerifyCode, Problem, SubmitRecord
+from .models import UserProfile, VerifyCode, Problem, SubmitRecord
 
 
 class BaseSetting(object):
@@ -16,7 +16,7 @@ class GlobalSettings(object):
     # model折叠
 
 
-class UserAdmin(object):
+class UserProfileAdmin(object):
     list_display = ('id', 'name', 'email', 'password', 'gender', 'phone_number', 'add_time')
     search_fields = ('id', 'name', 'email', 'password', 'gender', 'phone_number')
     list_filter = ('id', 'name', 'email', 'password', 'gender', 'phone_number', 'add_time')
@@ -40,7 +40,8 @@ class SubmitRecordAdmin(object):
     list_filter = ('id', 'problem_id__id', 'user_id__id', 'record', 'status', 'add_time')
 
 
-xadmin.site.register(User, UserAdmin)
+# xadmin.site.unregister(UserProfile)
+xadmin.site.register(UserProfile, UserProfileAdmin)
 xadmin.site.register(VerifyCode, VerifyCodeAdmin)
 xadmin.site.register(Problem, ProblemAdmin)
 xadmin.site.register(SubmitRecord, SubmitRecordAdmin)

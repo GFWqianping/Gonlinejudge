@@ -10,23 +10,18 @@ class Test(models.Model):
     name = models.CharField(max_length=12)
 
 
-class User(models.Model):
-    id = models.IntegerField(unique=True, primary_key=True)
-    name = models.CharField(max_length=32)
-    email = models.CharField(max_length=100, null=True, blank=True)
-    password = models.CharField(max_length=16)
+class UserProfile(AbstractUser):
+    nick_name = models.CharField(max_length=32, null=True)
     gender = models.CharField(max_length=8, choices=(('male', '男'), ('female', '女')))
     phone_number = models.IntegerField()
-
-    add_time = models.DateTimeField(default=datetime.now)
-    # 编译时间，非添加时间
+    image = models.ImageField(upload_to='image/%Y/%m', default='image/default.png', max_length=128)
 
     class Meta:
-        verbose_name = '用户'
-        verbose_name_plural = '用户'
+        verbose_name = '用户信息'
+        verbose_name_plural = verbose_name
 
     def __str__(self):
-        return self.name
+        return self.username
 
 
 class VerifyCode(models.Model):

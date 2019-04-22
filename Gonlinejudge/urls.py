@@ -19,7 +19,10 @@ from django.views.generic import TemplateView
 
 import xadmin
 
+from online_judge.views import g_login
+
 urlpatterns = [
     path('xadmin/', xadmin.site.urls),
     path('', TemplateView.as_view(template_name='index.html'), name='index'),
+    path('login/', g_login, name='login'),
 ]

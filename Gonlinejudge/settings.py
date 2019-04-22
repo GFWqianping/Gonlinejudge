@@ -35,6 +35,9 @@ ALLOWED_HOSTS = []
 
 
 # Application definition
+AUTHENTICATION_BACKENDS = (
+    'online_judge.views.CustomBackend',
+)
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -43,10 +46,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'apps.online_judge',
+    'online_judge',
     'xadmin',
     'crispy_forms'
 ]
+
+AUTH_USER_MODEL = 'online_judge.UserProfile'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -86,7 +91,7 @@ WSGI_APPLICATION = 'Gonlinejudge.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'oj',
+        'NAME': 'online_judge',
         'USER': 'wqp',
         'HOST': '127.0.0.1',
         'POST': '3306',
