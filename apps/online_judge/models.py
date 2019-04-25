@@ -1,8 +1,7 @@
 from datetime import datetime
 
-from django.db import models
 from django.contrib.auth.models import AbstractUser
-
+from django.db import models
 # Create your models here.
 
 
@@ -10,23 +9,21 @@ class Test(models.Model):
     name = models.CharField(max_length=12)
 
 
-class User(models.Model):
-    id = models.IntegerField(unique=True, primary_key=True)
-    name = models.CharField(max_length=32)
-    email = models.CharField(max_length=100, null=True, blank=True)
-    password = models.CharField(max_length=16)
-    gender = models.CharField(max_length=8, choices=(('male', '男'), ('female', '女')))
-    phone_number = models.IntegerField()
-
-    add_time = models.DateTimeField(default=datetime.now)
-    # 编译时间，非添加时间
+class User(AbstractUser):
+    # id = models.IntegerField(unique=True, primary_key=True)
+    nick_name = models.CharField(max_length=32, default='', verbose_name='昵称')
+    email = models.CharField(max_length=64, null=True, blank=True, default='邮箱地址')
+    gender = models.CharField(max_length=8, choices=(('male', '男'), ('female', '女')),
+                              default='male', verbose_name='性别')
+    phone_number = models.IntegerField(default=0, verbose_name='电话')
+    image = models.ImageField(upload_to='image/%Y/%m', default='image/default.png', max_length=128)
 
     class Meta:
-        verbose_name = '用户'
-        verbose_name_plural = '用户'
+        verbose_name = '用户信息'
+        verbose_name_plural = verbose_name
 
     def __str__(self):
-        return self.name
+        return self.username
 
 
 class VerifyCode(models.Model):
@@ -77,7 +74,7 @@ class SubmitRecord(models.Model):
     )
     id = models.IntegerField(unique=True, primary_key=True)
     problem_id = models.ForeignKey('Problem', on_delete=models.CASCADE)
-    user_id = models.ForeignKey('User', to_field='id', on_delete=models.CASCADE)
+    user_id = models.ForeignKey('User', on_delete=models.CASCADE)
     record = models.TextField(verbose_name='提交记录')
     status = models.CharField(max_length=8, choices=RECORD_STATUS)
 

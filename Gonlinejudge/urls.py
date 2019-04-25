@@ -15,7 +15,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.views.generic import TemplateView
+
+import xadmin
+
+from apps.online_judge.views import g_login
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('xadmin/', xadmin.site.urls),
+    path('login/', g_login, name='login'),
+    path('', TemplateView.as_view(template_name='index.html'), name='index'),
 ]
