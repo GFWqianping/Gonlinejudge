@@ -31,7 +31,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-# AUTH_USER_MODEL = 'online_judge.models'
+AUTH_USER_MODEL = 'online_judge.User'
 
 
 # Application definition
@@ -86,7 +86,7 @@ WSGI_APPLICATION = 'Gonlinejudge.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'oj',
+        'NAME': 'online_judge',
         'USER': 'wqp',
         'HOST': '127.0.0.1',
         'POST': '3306',
