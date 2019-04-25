@@ -44,6 +44,25 @@ class VerifyCode(models.Model):
         return self.code
 
 
+class EmailVerifyCode(models.Model):
+    """
+    短信验证码
+    """
+    code = models.CharField(max_length=16, verbose_name='验证码')
+    email = models.EmailField(max_length=64, verbose_name='邮箱')
+    send_type = models.CharField(verbose_name='验证码类型',
+                                 choices=(('register', '注册'), ('forget', '忘记密码')),
+                                 default='register', max_length=16)
+    send_time = models.DateTimeField(verbose_name='发送时间', default=datetime.now)
+
+    class Meta:
+        verbose_name = '邮箱验证码'
+        verbose_name_plural = verbose_name
+
+    def __str__(self):
+        return '{0}({1})'.format(self.code, self.email)
+
+
 class Problem(models.Model):
     id = models.IntegerField(unique=True, primary_key=True)
     title = models.TextField(max_length=64)
