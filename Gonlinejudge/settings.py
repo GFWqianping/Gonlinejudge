@@ -35,6 +35,9 @@ AUTH_USER_MODEL = 'online_judge.User'
 
 
 # Application definition
+AUTHENTICATION_BACKENDS = (
+    'apps.online_judge.views.CustomBackend',
+)
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -45,7 +48,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'apps.online_judge',
     'xadmin',
-    'crispy_forms'
+    'crispy_forms',
+    'captcha',
 ]
 
 MIDDLEWARE = [
@@ -135,4 +139,13 @@ USE_TZ = False
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
+    os.path.join(BASE_DIR, 'apps'),
+    os.path.join(BASE_DIR, 'extra_apps')
 )
+
+EMAIL_HOST = 'smtp.163.com'
+EMAIL_PORT = 25
+EMAIL_HOST_USER = 'wangtf_2015@163.com'
+EMAIL_HOST_PASSWORD = 'wqp123'
+EMAIL_USE_TLS = False
+EMAIL_FROM = 'wangtf_2015@163.com'
