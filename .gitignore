@@ -1,0 +1,9 @@
+.DS_Store
+.idea/
+Gonlinejudge/__pycache__/
+__pycache__/
+apps/__pycache__/
+apps/online_judge/__pycache__/
+apps/online_judge/migrations/
+apps/utils/__pycache__/
+venv/
