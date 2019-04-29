@@ -35,9 +35,9 @@ AUTH_USER_MODEL = 'online_judge.User'
 
 
 # Application definition
-# AUTHENTICATION_BACKENDS = (
-#     'online_judge.views.CustomBackend',
-# )
+AUTHENTICATION_BACKENDS = (
+    'apps.online_judge.views.CustomBackend',
+)
 
 INSTALLED_APPS = [
     'django.contrib.admin',

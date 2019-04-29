@@ -20,13 +20,14 @@ from django.views.generic import TemplateView
 import xadmin
 # import captcha
 
-from apps.online_judge.views import LoginView, RegisterView
+from apps.online_judge.views import LoginView, RegisterView, ActiveUserView
 
 urlpatterns = [
     path('xadmin/', xadmin.site.urls),
     path('captcha/', include('captcha.urls')),
     path('login/', LoginView.as_view(), name='login'),
     path('register/', RegisterView.as_view(), name='register'),
+    path('active/<str:active_code>/', ActiveUserView.as_view(), name='active'),
     path('', TemplateView.as_view(template_name='index.html'), name='index'),
 
 ]

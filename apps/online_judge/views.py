@@ -5,7 +5,7 @@ from django.contrib.auth.backends import ModelBackend
 from django.db.models import Q
 from django.contrib.auth.hashers import make_password
 
-from .models import User
+from .models import User, EmailVerifyCode
 from .forms import LoginForm, RegisterForm
 from utils.email_send import send_register_email
 
@@ -13,8 +13,7 @@ from utils.email_send import send_register_email
 class CustomBackend(ModelBackend):
     def authenticate(self, request, username=None, password=None, **kwargs):
         try:
-            user = User.objects.get(Q(username=username) | Q(email=username)
-                                    | Q(phone_number=username))
+            user = User.objects.get(Q(username=username) | Q(email=username))
             if user.check_password(password):
                 return user
         except Exception as e:
@@ -32,8 +31,12 @@ class LoginView(View):
             password = request.POST.get('password', '')
             user = authenticate(username=username, password=password)
             if user is not None:
-                login(request, user)
-                return render(request, 'index.html')
+                if user.is_active:
+                    login(request, user)
+                    return render(request, 'index.html')
+                else:
+                    return render(request, 'login.html', {'emsg': '用户未激活'})
+
             else:
                 return render(request, 'login.html', {'emsg': '用户名或密码错误'})
         else:
@@ -53,12 +56,29 @@ class RegisterView(View):
             user = User()
             user.username = email
             user.email = email
+            user.is_active = False
             user.password = make_password(password)
             user.save()
 
             send_register_email(email, 'register')
-            a = 1+1
             return render(request, 'login.html')
         else:
-            return render(request, 'register.html', {'rerrors': register_form.errors})
+            return render(request, 'register.html', {'register_form': register_form})
+
+
+class ActiveUserView(View):
+    def get(self, request, active_code):
+        all_records = EmailVerifyCode.objects.filter(code=active_code)
+        if all_records:
+            for record in all_records:
+                email = record.email
+                user = User.objects.get(email=email)
+                if user:
+                    user.is_active = True
+                    user.save()
+                return render(request, 'login.html')
+        else:
+            return render(request, 'index.html')
+
+
 

@@ -2,19 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6d8b3342-04a9-47f6-a5c4-59a71c364ee8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/apps/online_judge/forms.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/utils/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/utils/email_send.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/register.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Gonlinejudge.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Gonlinejudge.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Gonlinejudge/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/Gonlinejudge/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Gonlinejudge/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/Gonlinejudge/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/online_judge/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/online_judge/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/online_judge/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/online_judge/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/register.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -44,8 +36,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Gonlinejudge/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="296">
-              <caret line="148" column="29" selection-start-line="148" selection-start-column="29" selection-end-line="148" selection-end-column="29" />
+            <state relative-caret-position="99">
+              <caret line="32" lean-forward="true" selection-start-line="32" selection-end-line="32" />
               <folding>
                 <element signature="e#313#322#0" expanded="true" />
               </folding>
@@ -54,22 +46,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Gonlinejudge/urls.py">
+        <entry file="file://$PROJECT_DIR$/apps/online_judge/apps.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="22" selection-start-line="22" selection-end-line="22" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apps/online_judge/models.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="266">
-              <caret line="62" selection-start-line="62" selection-end-line="62" />
-              <folding>
-                <element signature="e#0#29#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="45">
+              <caret line="3" column="35" lean-forward="true" selection-start-line="3" selection-start-column="35" selection-end-line="3" selection-end-column="35" />
             </state>
           </provider>
         </entry>
@@ -77,71 +57,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/register.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="81" column="30" lean-forward="true" selection-start-line="81" selection-start-column="30" selection-end-line="81" selection-end-column="30" />
-              <folding>
-                <element signature="e#853#859#0#HTML" expanded="true" />
-                <element signature="e#859#865#0#HTML" expanded="true" />
-                <element signature="e#865#871#0#HTML" expanded="true" />
-                <element signature="e#871#877#0#HTML" expanded="true" />
-                <element signature="e#877#883#0#HTML" expanded="true" />
-                <element signature="e#883#889#0#HTML" expanded="true" />
-                <element signature="e#1199#1205#0#HTML" expanded="true" />
-                <element signature="n#style#0;n#p#2;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#0;n#p#3;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="e#2922#2928#0#HTML" expanded="true" />
-                <element signature="e#7103#7109#0#HTML" expanded="true" />
-                <element signature="e#7109#7115#0#HTML" expanded="true" />
-                <element signature="e#7115#7121#0#HTML" expanded="true" />
-                <element signature="e#7121#7127#0#HTML" expanded="true" />
-                <element signature="e#7127#7133#0#HTML" expanded="true" />
-                <element signature="e#7381#7387#0#HTML" expanded="true" />
-                <element signature="e#7387#7393#0#HTML" expanded="true" />
-                <element signature="e#7393#7399#0#HTML" expanded="true" />
-                <element signature="e#7399#7405#0#HTML" expanded="true" />
-                <element signature="e#7405#7411#0#HTML" expanded="true" />
-                <element signature="e#7684#7690#0#HTML" expanded="true" />
-                <element signature="e#7691#7697#0#HTML" expanded="true" />
-              </folding>
+            <state relative-caret-position="180">
+              <caret line="147" column="55" lean-forward="true" selection-start-line="147" selection-start-column="55" selection-end-line="147" selection-end-column="55" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/apps/utils/email_send.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="264">
-              <caret line="20" selection-start-line="20" selection-end-line="20" />
-              <folding>
-                <element signature="e#0#13#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/venv/lib/python3.7/site-packages/django/core/mail/__init__.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="126">
-              <caret line="50" selection-start-line="50" selection-end-line="50" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/venv/lib/python3.7/site-packages/django/contrib/auth/base_user.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="126">
-              <caret line="72" selection-start-line="72" selection-end-line="72" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/apps/online_judge/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="194">
-              <caret line="58" selection-start-line="58" selection-end-line="58" />
+            <state relative-caret-position="119">
+              <caret line="15" column="76" selection-start-line="15" selection-start-column="76" selection-end-line="15" selection-end-column="76" />
               <folding>
                 <element signature="e#0#42#0" expanded="true" />
               </folding>
@@ -150,19 +76,58 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/venv/lib/python3.7/site-packages/django/contrib/auth/hashers.py">
+        <entry file="file://$PROJECT_DIR$/venv/lib/python3.7/site-packages/django/db/models/query_utils.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="199">
-              <caret line="73" selection-start-line="73" selection-end-line="73" />
+            <state relative-caret-position="283">
+              <caret line="57" column="8" selection-start-line="57" selection-start-column="8" selection-end-line="57" selection-end-column="8" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/venv/lib/python3.7/site-packages/django/forms/forms.py">
+        <entry file="file://$PROJECT_DIR$/venv/lib/python3.7/site-packages/django/db/models/manager.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="126">
-              <caret line="184" selection-start-line="184" selection-end-line="184" />
+              <caret line="174" selection-start-line="174" selection-end-line="174" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/venv/lib/python3.7/site-packages/django/contrib/auth/base_user.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="126">
+              <caret line="100" column="8" selection-start-line="100" selection-start-column="8" selection-end-line="100" selection-end-column="8" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/venv/lib/python3.7/site-packages/django/contrib/auth/__init__.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="119">
+              <caret line="65" selection-start-line="65" selection-end-line="65" />
+              <folding>
+                <element signature="e#0#14#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/venv/lib/python3.7/site-packages/django/utils/module_loading.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="195">
+              <caret line="16" selection-start-line="16" selection-end-line="16" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file:///Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/importlib/__init__.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="276">
+              <caret line="126" selection-start-line="126" selection-end-line="126" />
             </state>
           </provider>
         </entry>
@@ -186,6 +151,7 @@
       <find>/static/</find>
       <find>.css</find>
       <find>.js</find>
+      <find>tips</find>
     </findStrings>
     <replaceStrings>
       <replace>/static/</replace>
@@ -216,13 +182,14 @@
         <option value="$PROJECT_DIR$/templates/login.html" />
         <option value="$PROJECT_DIR$/templates/index.html" />
         <option value="$PROJECT_DIR$/requirements.txt" />
-        <option value="$PROJECT_DIR$/Gonlinejudge/urls.py" />
         <option value="$PROJECT_DIR$/apps/online_judge/forms.py" />
         <option value="$PROJECT_DIR$/apps/online_judge/models.py" />
         <option value="$PROJECT_DIR$/apps/utils/email_send.py" />
         <option value="$PROJECT_DIR$/templates/register.html" />
-        <option value="$PROJECT_DIR$/apps/online_judge/views.py" />
+        <option value="$PROJECT_DIR$/Gonlinejudge/urls.py" />
+        <option value="$PROJECT_DIR$/apps/online_judge/apps.py" />
         <option value="$PROJECT_DIR$/Gonlinejudge/settings.py" />
+        <option value="$PROJECT_DIR$/apps/online_judge/views.py" />
       </list>
     </option>
   </component>
@@ -238,6 +205,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -259,17 +227,6 @@
             <path>
               <item name="Gonlinejudge" type="b2602c69:ProjectViewProjectNode" />
               <item name="Gonlinejudge" type="462c0819:PsiDirectoryNode" />
-              <item name="apps" type="462c0819:PsiDirectoryNode" />
-              <item name="utils" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Gonlinejudge" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Gonlinejudge" type="462c0819:PsiDirectoryNode" />
-              <item name="Gonlinejudge" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Gonlinejudge" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Gonlinejudge" type="462c0819:PsiDirectoryNode" />
               <item name="static" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -281,7 +238,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -346,31 +302,31 @@
       <option name="presentableId" value="Default" />
       <updated>1553053392045</updated>
       <workItem from="1553053393571" duration="4436000" />
+      <workItem from="1556360004831" duration="16357000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="37166000" />
+    <option name="totallyTimeSpent" value="54626000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="74" y="-768" width="1366" height="768" extended-state="0" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24244712" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24622357" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.4" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" />
-      <window_info anchor="bottom" id="Database Changes" order="9" />
+      <window_info anchor="bottom" id="Version Control" order="8" weight="0.3288889" />
+      <window_info anchor="bottom" id="Database Changes" order="9" weight="0.3288889" />
       <window_info anchor="bottom" id="manage.py@Gonlinejudge" order="10" weight="0.3283767" />
-      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.49946752" weight="0.38074073" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" sideWeight="0.49946752" visible="true" weight="0.38074073" />
       <window_info anchor="bottom" id="Python Console" order="12" />
       <window_info anchor="bottom" id="Event Log" order="13" sideWeight="0.5005325" side_tool="true" weight="0.32908705" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -382,17 +338,6 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/apps/online_judge/views.py</url>
-          <line>58</line>
-          <option name="timeStamp" value="17" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/online_judge/migrations/0001_initial.py" />
@@ -413,13 +358,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/online_judge/models.py" />
-    <entry file="file://$PROJECT_DIR$/apps/online_judge/apps.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" selection-start-line="1" selection-end-line="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/apps/online_judge/adminx.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="288">
@@ -457,23 +395,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/venv/lib/python3.7/site-packages/django/conf/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="55" selection-start-line="55" selection-end-line="55" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/venv/lib/python3.7/site-packages/django/contrib/auth/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="65" selection-start-line="65" selection-end-line="65" />
-          <folding>
-            <element signature="e#0#14#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/apps/online_judge/admin.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
@@ -496,13 +417,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
           <caret line="10" column="21" selection-start-line="10" selection-start-column="14" selection-end-line="10" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/login.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1067">
-          <caret line="2" column="22" selection-start-line="2" selection-start-column="22" selection-end-line="2" selection-end-column="22" />
         </state>
       </provider>
     </entry>
@@ -532,108 +446,174 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Gonlinejudge/urls.py">
+    <entry file="file://$PROJECT_DIR$/venv/lib/python3.7/site-packages/django/core/mail/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="22" selection-start-line="22" selection-end-line="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/register.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="81" column="30" lean-forward="true" selection-start-line="81" selection-start-column="30" selection-end-line="81" selection-end-column="30" />
-          <folding>
-            <element signature="e#853#859#0#HTML" expanded="true" />
-            <element signature="e#859#865#0#HTML" expanded="true" />
-            <element signature="e#865#871#0#HTML" expanded="true" />
-            <element signature="e#871#877#0#HTML" expanded="true" />
-            <element signature="e#877#883#0#HTML" expanded="true" />
-            <element signature="e#883#889#0#HTML" expanded="true" />
-            <element signature="e#1199#1205#0#HTML" expanded="true" />
-            <element signature="n#style#0;n#p#2;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#p#3;n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="e#2922#2928#0#HTML" expanded="true" />
-            <element signature="e#7103#7109#0#HTML" expanded="true" />
-            <element signature="e#7109#7115#0#HTML" expanded="true" />
-            <element signature="e#7115#7121#0#HTML" expanded="true" />
-            <element signature="e#7121#7127#0#HTML" expanded="true" />
-            <element signature="e#7127#7133#0#HTML" expanded="true" />
-            <element signature="e#7381#7387#0#HTML" expanded="true" />
-            <element signature="e#7387#7393#0#HTML" expanded="true" />
-            <element signature="e#7393#7399#0#HTML" expanded="true" />
-            <element signature="e#7399#7405#0#HTML" expanded="true" />
-            <element signature="e#7405#7411#0#HTML" expanded="true" />
-            <element signature="e#7684#7690#0#HTML" expanded="true" />
-            <element signature="e#7691#7697#0#HTML" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/venv/lib/python3.7/site-packages/django/forms/forms.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="184" selection-start-line="184" selection-end-line="184" />
+        <state relative-caret-position="585">
+          <caret line="50" selection-start-line="50" selection-end-line="50" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/venv/lib/python3.7/site-packages/django/contrib/auth/hashers.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="199">
+        <state relative-caret-position="855">
           <caret line="73" selection-start-line="73" selection-end-line="73" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/venv/lib/python3.7/site-packages/django/contrib/auth/base_user.py">
+    <entry file="file://$PROJECT_DIR$/venv/lib/python3.7/site-packages/django/forms/forms.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="72" selection-start-line="72" selection-end-line="72" />
+        <state relative-caret-position="2535">
+          <caret line="184" selection-start-line="184" selection-end-line="184" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/venv/lib/python3.7/site-packages/django/core/mail/__init__.py">
+    <entry file="file://$PROJECT_DIR$/static/js/comment.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1786" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/js/jQuery.artTxtCount.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="235">
+          <caret line="73" column="82" selection-start-line="73" selection-start-column="82" selection-end-line="73" selection-end-column="82" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/utils/email_send.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="20" selection-start-line="20" selection-end-line="20" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Gonlinejudge/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="29" column="35" selection-start-line="29" selection-start-column="35" selection-end-line="29" selection-end-column="35" />
+          <folding>
+            <element signature="e#636#668#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/lib/python3.7/site-packages/django/db/models/query.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="126">
-          <caret line="50" selection-start-line="50" selection-end-line="50" />
+          <caret line="271" selection-start-line="271" selection-end-line="271" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/apps/online_judge/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="62" selection-start-line="62" selection-end-line="62" />
+        <state relative-caret-position="120">
+          <caret line="8" selection-start-line="8" selection-end-line="8" />
           <folding>
             <element signature="e#0#29#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file:///Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/importlib/_bootstrap.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="35">
+          <caret line="979" column="18" lean-forward="true" selection-start-line="979" selection-start-column="18" selection-end-line="979" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/online_judge/apps.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="35" lean-forward="true" selection-start-line="3" selection-start-column="35" selection-end-line="3" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/lib/python3.7/site-packages/django/conf/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="55" selection-start-line="55" selection-end-line="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/lib/python3.7/site-packages/django/utils/module_loading.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="16" selection-start-line="16" selection-end-line="16" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Gonlinejudge/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="296">
-          <caret line="148" column="29" selection-start-line="148" selection-start-column="29" selection-end-line="148" selection-end-column="29" />
+        <state relative-caret-position="99">
+          <caret line="32" lean-forward="true" selection-start-line="32" selection-end-line="32" />
           <folding>
             <element signature="e#313#322#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/online_judge/views.py">
+    <entry file="file://$PROJECT_DIR$/templates/register.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="194">
-          <caret line="58" selection-start-line="58" selection-end-line="58" />
+        <state relative-caret-position="180">
+          <caret line="147" column="55" lean-forward="true" selection-start-line="147" selection-start-column="55" selection-end-line="147" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/lib/python3.7/site-packages/django/contrib/auth/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="65" selection-start-line="65" selection-end-line="65" />
           <folding>
-            <element signature="e#0#42#0" expanded="true" />
+            <element signature="e#0#14#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/utils/email_send.py">
+    <entry file="file:///Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/importlib/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="20" selection-start-line="20" selection-end-line="20" />
+        <state relative-caret-position="276">
+          <caret line="126" selection-start-line="126" selection-end-line="126" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/lib/python3.7/site-packages/django/db/models/manager.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="174" selection-start-line="174" selection-end-line="174" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/lib/python3.7/site-packages/django/contrib/auth/base_user.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="100" column="8" selection-start-line="100" selection-start-column="8" selection-end-line="100" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/lib/python3.7/site-packages/django/db/models/query_utils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="283">
+          <caret line="57" column="8" selection-start-line="57" selection-start-column="8" selection-end-line="57" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/online_judge/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="15" column="76" selection-start-line="15" selection-start-column="76" selection-end-line="15" selection-end-column="76" />
           <folding>
-            <element signature="e#0#13#0" expanded="true" />
+            <element signature="e#0#42#0" expanded="true" />
           </folding>
         </state>
       </provider>
