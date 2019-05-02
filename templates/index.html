@@ -27,7 +27,7 @@
                     {% if request.user.is_authenticated %}
                         <div class="personal">
                             <dl class="user fr">
-                                <dd>bobby<img class="down fr" src="{% static 'images/top_down.png' %}"/></dd>
+                                <dd> {{ request.user }} <img class="down fr" src="{% static 'images/top_down.png' %}"/></dd>
                                 <dt><img width="20" height="20" src="{% static 'media/image/2016/12/default_big_14.png' %}"/></dt>
                             </dl>
                             <div class="userdetail">
@@ -35,12 +35,12 @@
 	                                <dt><img width="80" height="80" src="{% static 'media/image/2016/12/default_big_14.png' %}"/></dt>
 	                                <dd>
 	                                    <h2>django</h2>
-	                                    <p>{{ username }}</p>
+	                                    <p>{{ request.user }}</p>
 	                                </dd>
                                 </dl>
                                 <div class="btn">
 	                                <a class="personcenter fl" href="usercenter-info.html">进入个人中心</a>
-	                                <a class="fr" href="/logout/">退出</a>
+	                                <a class="fr" href="{% url 'logout' %}">退出</a>
                                 </div>
                             </div>
                         </div>
@@ -548,7 +548,7 @@
 			<div class="wp">
 				<ul class="cont">
 					<li class="logo"><a href=""><img src="{% static 'images/footlogo.png' %}"/></a></li>
-					<li class="code"><img src="{% static 'images/code.jpg"/><p class="center' %}">扫描关注微信</p></li>
+					<li class="code"><img src="{% static 'images/code.jpg' %}"/><p class="center">扫描关注微信</p></li>
 					<li class="third"><img class="fl" src="{% static 'images/tell.png' %}"/><p class="tell">33333333</p><p class="time">周一至周日 9:00-18:00</p></li>
 				</ul>
 

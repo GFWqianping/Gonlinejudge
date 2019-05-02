@@ -40,7 +40,6 @@ class SubmitRecordAdmin(object):
     list_filter = ('id', 'problem_id__id', 'user_id__id', 'record', 'status', 'add_time')
 
 
-# xadmin.site.register(User, UserAdmin)
 xadmin.site.register(VerifyCode, VerifyCodeAdmin)
 xadmin.site.register(Problem, ProblemAdmin)
 xadmin.site.register(SubmitRecord, SubmitRecordAdmin)

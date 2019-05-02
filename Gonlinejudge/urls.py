@@ -20,14 +20,19 @@ from django.views.generic import TemplateView
 import xadmin
 # import captcha
 
-from apps.online_judge.views import LoginView, RegisterView, ActiveUserView
+from apps.online_judge.views import LoginView, RegisterView, ActiveUserView, ForgetPwdView,\
+    ResetPwdView, ModifyPwdView, LogoutView
 
 urlpatterns = [
     path('xadmin/', xadmin.site.urls),
     path('captcha/', include('captcha.urls')),
     path('login/', LoginView.as_view(), name='login'),
+    path('logout/', LogoutView.as_view(), name='logout'),
     path('register/', RegisterView.as_view(), name='register'),
     path('active/<str:active_code>/', ActiveUserView.as_view(), name='active'),
+    path('reset/<str:reset_code>/', ResetPwdView.as_view(), name='reset_pwd'),
+    path('modify/', ModifyPwdView.as_view(), name='modify_pwd'),
+    path('forget/', ForgetPwdView.as_view(), name='forget_pwd'),
     path('', TemplateView.as_view(template_name='index.html'), name='index'),
 
 ]

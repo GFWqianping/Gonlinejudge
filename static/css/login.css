@@ -174,6 +174,25 @@ a:hover{
      border-bottom:3px solid #6ec55a;
     color:#333;
 }
+.login-box-modify{
+    width:853px;
+    margin:150px auto;
+}
+.form-box-modify{
+    position: relative;
+    float: left;
+    width:350px;
+    height: 350px;
+    padding:75px 40px;
+    margin-left: 270px;
+    background:#FFFFFF;
+    color:#666;
+    opacity: 0.87;
+}
+.form-box-modify h2{
+    width: auto;
+    height: 50px;
+}
 .valcode{
     display:none;
     width:200px;
