@@ -21,7 +21,7 @@ import xadmin
 # import captcha
 
 from apps.online_judge.views import LoginView, RegisterView, ActiveUserView, ForgetPwdView,\
-    ResetPwdView, ModifyPwdView, LogoutView
+    ResetPwdView, ModifyPwdView, LogoutView, UserInfoView
 
 urlpatterns = [
     path('xadmin/', xadmin.site.urls),
@@ -34,5 +34,6 @@ urlpatterns = [
     path('modify/', ModifyPwdView.as_view(), name='modify_pwd'),
     path('forget/', ForgetPwdView.as_view(), name='forget_pwd'),
     path('', TemplateView.as_view(template_name='index.html'), name='index'),
-
+    path('user/', include('apps.online_judge.urls')),
+    path('question/', include('apps.question_bank.urls'))
 ]

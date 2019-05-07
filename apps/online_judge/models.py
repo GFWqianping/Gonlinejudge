@@ -15,7 +15,7 @@ class User(AbstractUser):
     email = models.CharField(max_length=64, null=True, blank=True, default='邮箱地址')
     gender = models.CharField(max_length=8, choices=(('male', '男'), ('female', '女')),
                               default='male', verbose_name='性别')
-    phone_number = models.IntegerField(default=0, verbose_name='电话')
+    phone_number = models.CharField(default='', verbose_name='电话', max_length=16)
     image = models.ImageField(upload_to='image/%Y/%m', default='image/default.png', max_length=128)
 
     class Meta:
@@ -23,7 +23,10 @@ class User(AbstractUser):
         verbose_name_plural = verbose_name
 
     def __str__(self):
-        return self.username
+        if self.nick_name != '':
+            return self.nick_name
+        else:
+            return self.username
 
 
 class VerifyCode(models.Model):

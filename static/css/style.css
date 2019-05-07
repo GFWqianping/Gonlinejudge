@@ -443,6 +443,9 @@ caption {
     border-top: 0;
 }
 
+.header .top .personal:hover .userdetail{
+    display: block;
+}
 .header .top .userdetail dl {
     width: 300px;
     height: auto;

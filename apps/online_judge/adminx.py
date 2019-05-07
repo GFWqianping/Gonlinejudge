@@ -1,7 +1,7 @@
 import xadmin
 from xadmin import views
 
-from .models import User, VerifyCode, Problem, SubmitRecord
+from .models import VerifyCode,  SubmitRecord
 
 
 class BaseSetting(object):
@@ -10,8 +10,8 @@ class BaseSetting(object):
 
 
 class GlobalSettings(object):
-    site_title = 'GOnlineJudge后台管理系统'
-    site_footer = 'GOnlineJudge'
+    site_title = 'GonlineJudge后台管理系统'
+    site_footer = 'GonlineJudge'
     menu_style = 'accordion'
     # model折叠
 
@@ -41,7 +41,6 @@ class SubmitRecordAdmin(object):
 
 
 xadmin.site.register(VerifyCode, VerifyCodeAdmin)
-xadmin.site.register(Problem, ProblemAdmin)
 xadmin.site.register(SubmitRecord, SubmitRecordAdmin)
 xadmin.site.register(views.BaseAdminView, BaseSetting)
 xadmin.site.register(views.CommAdminView, GlobalSettings)

@@ -5,5 +5,8 @@ __pycache__/
 apps/__pycache__/
 apps/online_judge/__pycache__/
 apps/online_judge/migrations/
+apps/question_bank/migrations/
 apps/utils/__pycache__/
 venv/
+media/image
+image/

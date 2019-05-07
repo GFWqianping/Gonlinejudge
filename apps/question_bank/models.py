@@ -1,0 +1,22 @@
+from datetime import datetime
+
+from django.db import models
+
+from apps.online_judge.models import Problem
+# Create your models here.
+
+
+class ProgrammingProblem(Problem):
+    difficulty = models.CharField(max_length=16, default='c', verbose_name='难度',
+                                  choices=(('s', '艰巨'), ('a', '困难'), ('b', '中等'), ('c', '简单')))
+    heat = models.IntegerField(verbose_name='热度', default=0)
+    pass_rate = models.IntegerField(verbose_name='通过率', default=0)
+    status = models.CharField(max_length=16, default='not_answer', verbose_name='状态',
+                              choices=(('not_pass', '未通过'), ('pass', '已通过'), ('not_answer', '未作答')))
+
+    class Meta:
+        verbose_name = '编程题目'
+        verbose_name_plural = verbose_name
+
+    def __str__(self):
+        return self.title

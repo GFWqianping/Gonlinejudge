@@ -1,0 +1,32 @@
+@charset "UTF-8";
+.listoptions .problemlist{
+    width: 100%;
+    height: 100%;
+
+}
+.listoptions .problemlist tr{
+    height: 45px;
+    font-family: "正楷";
+    font-size: 18px;
+
+}
+
+.listoptions .problemlist tbody{
+    text-align:center;
+
+}
+
+.listoptions .problemlist .titler{
+    text-align: left;
+}
+
+.listoptions .problemlist .idr{
+    width: 40px;
+
+}
+.listoptions .problemlist .rater{
+    width: 80px;
+}
+.listoptions .problemlist .diffr{
+    width: 65px;
+}

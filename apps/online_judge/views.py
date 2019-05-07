@@ -1,12 +1,15 @@
+import json
+
 from django.views.generic.base import View
 from django.shortcuts import render
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.backends import ModelBackend
 from django.db.models import Q
 from django.contrib.auth.hashers import make_password
+from django.http import HttpResponse
 
 from .models import User, EmailVerifyCode
-from .forms import LoginForm, RegisterForm, ForgetForm, ModifyPwdForm
+from .forms import LoginForm, RegisterForm, ForgetForm, ModifyPwdForm, UserInfoForm, ChangeImageForm
 from utils.email_send import send_register_email
 
 
@@ -103,11 +106,12 @@ class ForgetPwdView(View):
 
 class ResetPwdView(View):
     def get(self, request, reset_code):
+        modify_pwd_form = ModifyPwdForm()
         all_records = EmailVerifyCode.objects.filter(code=reset_code)
         if all_records:
             for record in all_records:
                 email = record.email
-                return render(request, 'modifypwd.html', {'email': email})
+                return render(request, 'modifypwd.html', {'modify_pwd_form': modify_pwd_form})
         else:
             return render(request, 'active_fail.html')
 
@@ -133,7 +137,59 @@ class ModifyPwdView(View):
 
 class LogoutView(View):
     def get(self, request):
-        # username = request.POST.username
-        # user = User.objects.get(username=username)
         logout(request)
         return render(request, 'index.html')
+
+
+class UserInfoView(LogoutView, View):
+    def get(self, request):
+        return render(request, 'usercenter-info.html')
+
+    def post(self, request):
+        user_info_form = UserInfoForm(request.POST)
+        if user_info_form.is_valid():
+            # img = request.POST.get('image', '')
+            nick_name = request.POST.get('nick_name', '')
+            gender = request.POST.get('gender')
+            phone_num = request.POST.get('phone_num')
+            # email = request.POST.get('email')
+            username = request.POST.get('username')
+
+            user = User.objects.get(username=username)
+            user.nick_name = nick_name
+            # user.image = img
+            user.gender = gender
+            user.phone_number = phone_num
+            user.save()
+            return render(request, 'usercenter-info.html')
+        else:
+            return render(request, 'usercenter-info.html', {'user_info_form': user_info_form})
+
+
+class ChangePwdView(View):
+    def post(self, request):
+        change_pwd_form = ModifyPwdForm(request.POST)
+        if change_pwd_form.is_valid():
+            pwd1 = request.POST.get("password1", "")
+            pwd2 = request.POST.get("password2", "")
+            if pwd1 != pwd2:
+                return HttpResponse('{"status":"fail","msg":"密码不一致"}', content_type='application/json')
+            user = request.user
+            user.password = make_password(pwd2)
+            user.save()
+
+            return HttpResponse('{"status":"success"}', content_type='application/json')
+        else:
+            return HttpResponse(json.dumps(change_pwd_form.errors), content_type='application/json')
+
+
+class ChangeImageView(LogoutView, View):
+
+    def post(self, request):
+        image_form = ChangeImageForm(request.POST, request.FILES, instance=request.user)
+        if image_form.is_valid():
+            image_form.save()
+            return HttpResponse('{"status":"success"}', content_type='application/json')
+        else:
+            return HttpResponse('{"status":"fail"}', content_type='application/json')
+

@@ -68,13 +68,13 @@
                                value="{{ modify_pwd_form.password2.prepare_value }}" placeholder="8-20位字符" />
                     </div>
                     <input name="email" type="hidden" value="{{ email }}">
-                    <div class="form-group captcha1 marb38 {% if modify_pwd_form.errors.captcha %}errorput{% endif %} ">
+                    <div class="form-group marb8 captcha1 {% if modify_pwd_form.errors.captcha %}errorput{% endif %} ">
                         <label>验&nbsp;证&nbsp;码</label>
                         {{ modify_pwd_form.captcha }}
                     </div>
                     <div class="error btns login-form-tips" id="jsLoginTips">
                         {% for key, error in login_form.errors.items %}{{ error }}{% endfor %}{{ emsg }}</div>
-                     <input class="btn btn-green" id="jsLoginBtn" type="submit" value="立即登录 > " />
+                     <input class="btn btn-green" id="jsLoginBtn" type="submit" value="提交" />
                     {% csrf_token%}
                 </form>
             </div>

@@ -34,7 +34,7 @@
         </div>
         <div class="box ">
             <span class="word2">验&nbsp;&nbsp;证&nbsp;&nbsp;码</span>
-            <input type="text" name="code" id="jsResetCode" placeholder="请输入手机验证码"/>
+            {{ forget_form.captcha }}
         </div>
         <div class="error btns" id="jsSetNewPwdTips">
             {% for key, error in forget_form.errors.items %}{{ error }}{% endfor %}{{ emsg }}</div>
@@ -42,7 +42,7 @@
             <input type="hidden" name="mobile" id="jsInpResetMobil" />
             <input id="jsSetNewPwdBtn" type="button" value="提交" />
         </div>
-        <input type='hidden' name='csrfmiddlewaretoken' value='mymQDzHWl2REXIfPMg2mJaLqDfaS1sD5' />
+        {% csrf_token %}
     </form>
 </div>
 <div class="bg" id="dialogBg"></div>

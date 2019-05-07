@@ -5,7 +5,7 @@
 	<meta charset="UTF-8">
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" >
-	<title>课程机构列表 - 慕学在线网</title>
+	<title>Gonline judge, 在线判题网</title>
 	<link rel="stylesheet" type="text/css" href="{% static 'css/reset.css' %}">
 	<link rel="stylesheet" type="text/css" href="{% static 'css/animate.css' %}">
 	<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
@@ -28,18 +28,18 @@
                         <div class="personal">
                             <dl class="user fr">
                                 <dd> {{ request.user }} <img class="down fr" src="{% static 'images/top_down.png' %}"/></dd>
-                                <dt><img width="20" height="20" src="{% static 'media/image/2016/12/default_big_14.png' %}"/></dt>
+                                <dt><img width="20" height="20" src="{{ MEDIA_URL }}{{ request.user.image }}"/></dt>
                             </dl>
                             <div class="userdetail">
                             	<dl>
 	                                <dt><img width="80" height="80" src="{% static 'media/image/2016/12/default_big_14.png' %}"/></dt>
 	                                <dd>
-	                                    <h2>django</h2>
-	                                    <p>{{ request.user }}</p>
+	                                    <h2>{{ request.user }}</h2>
+	                                    <p>{{ request.user.email }}</p>
 	                                </dd>
                                 </dl>
                                 <div class="btn">
-	                                <a class="personcenter fl" href="usercenter-info.html">进入个人中心</a>
+	                                <a class="personcenter fl" href="{% url 'user_info' %}">进入个人中心</a>
 	                                <a class="fr" href="{% url 'logout' %}">退出</a>
                                 </div>
                             </div>
@@ -80,8 +80,8 @@
 						<ul>
 							<li class="active" ><a href="index.html">首页</a></li>
 							<li >
-								<a href="course-list.html">
-									公开课<img class="hot" src="{% static 'images/nav_hot.png' %}">
+								<a href="{% url 'question_home' %}">
+									题库
 								</a>
 							</li>
 							<li >

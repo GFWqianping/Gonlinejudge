@@ -193,6 +193,28 @@ a:hover{
     width: auto;
     height: 50px;
 }
+.form-box > .tab{
+    height:54px;
+    line-height:54px;
+    margin-bottom:34px;
+    font-size:18px;
+    font-weight:normal;
+    color:#333;
+    border-bottom:1px solid #eaeaea;
+}
+.form-box-modify > .tab > h2{
+    float:left;
+    width:90px;
+    height:53px;
+    line-height:53px;
+    cursor: pointer;
+    font-weight:normal;
+    text-align:center;
+}
+.form-box-modify > .tab > h2.active{
+     border-bottom:3px solid #6ec55a;
+    color:#333;
+}
 .valcode{
     display:none;
     width:200px;

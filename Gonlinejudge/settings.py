@@ -15,7 +15,7 @@ import sys
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-#添加根目录改变引入方式
+# 添加根目录改变引入方式
 sys.path.insert(0, BASE_DIR)
 sys.path.insert(0, os.path.join(BASE_DIR, 'apps'))
 sys.path.insert(0, os.path.join(BASE_DIR, 'extra_apps'))
@@ -47,6 +47,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'apps.online_judge',
+    'apps.question_bank',
+    'pure_pagination',
     'xadmin',
     'crispy_forms',
     'captcha',
@@ -149,3 +151,6 @@ EMAIL_HOST_USER = 'wangtf_2015@163.com'
 EMAIL_HOST_PASSWORD = 'wqp123'
 EMAIL_USE_TLS = False
 EMAIL_FROM = 'wangtf_2015@163.com'
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')

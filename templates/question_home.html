@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block custom_css %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/oj/questions_table.css' %}">
+{% endblock %}
+
+{% block custom_bread %}
+<section>
+	<div class="wp">
+		<ul  class="crumbs">
+			<li><a href="/">首页</a>></li>
+            <li><a href="/">题库</a>></li>
+		</ul>
+	</div>
+</section>
+{% endblock %}
+{% block content %}
+<section>
+<div class="wp butler_list_box list">
+    <div class="left">
+        <div class="listoptions">
+            <table class="problemlist">
+                <thead>
+                    <th class="idr"><strong>#</strong></th>
+                    <th class="titler"><strong>题名</strong></th>
+                    <th class="rater"><strong>通过率</strong></th>
+                    <th class="diffr"><strong>难度</strong></th>
+                </thead>
+                <tbody>
+                    {% for problem in problems.object_list %}
+                        <tr>
+                            <td class="idr">{{ problem.id }}</td>
+                            <td class="titler">
+                                <a href="">{{ problem.title }}</a>
+                            </td>
+                            <td class="rater">{{ problem.pass_rate }}</td>
+                            <td class="diffr">{{ problem.difficulty }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+ <div class="pageturn">
+            <ul class="pagelist">
+                {% if problems.has_previous %}
+                    <li class="long"><a href="?{{ problems.previous_page_number.querystring }}">上一页</a></li>
+                {% endif %}
+
+                {% for page in problems.pages %}
+                    {% if page %}
+                        {% ifequal page problems.number %}
+                            <li class="active"><a href="?{{ page.querystring }}">{{ page }}</a></li>
+                        {% else %}
+                            <li><a href="?{{ page.querystring }}" class="page">{{ page }}</a></li>
+                        {% endifequal %}
+                    {% else %}
+                        <li class="none"><a href="">...</a></li>
+                    {% endif %}
+                {% endfor %}
+                {% if problems.has_next %}
+                    <li class="long"><a href="?{{ problems.next_page_number.querystring }}">下一页</a></li>
+                {% endif %}
+
+            </ul>
+        </div>
+</section>
+{% endblock %}
