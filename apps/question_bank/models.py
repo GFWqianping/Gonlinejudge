@@ -11,8 +11,10 @@ class ProgrammingProblem(Problem):
                                   choices=(('s', '艰巨'), ('a', '困难'), ('b', '中等'), ('c', '简单')))
     heat = models.IntegerField(verbose_name='热度', default=0)
     pass_rate = models.IntegerField(verbose_name='通过率', default=0)
-    status = models.CharField(max_length=16, default='not_answer', verbose_name='状态',
-                              choices=(('not_pass', '未通过'), ('pass', '已通过'), ('not_answer', '未作答')))
+    input_format = models.TextField(max_length=256, default='', verbose_name='输入格式')
+    output_format = models.TextField(max_length=256, default='', verbose_name='输出格式')
+    # status = models.CharField(max_length=16, default='not_answer', verbose_name='状态',
+    #                           choices=(('not_pass', '未通过'), ('pass', '已通过'), ('not_answer', '未作答')))
 
     class Meta:
         verbose_name = '编程题目'

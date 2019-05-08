@@ -31,3 +31,9 @@ class QuestionHomeView(View):
             'problems': problems,
         })
 
+
+class AnswerView(View):
+
+    def get(self, request, pk):
+        problem = ProgrammingProblem.objects.get(id=pk)
+        return render(request, 'answer.html', {'problem': problem})

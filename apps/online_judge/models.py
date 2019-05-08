@@ -69,9 +69,9 @@ class EmailVerifyCode(models.Model):
 class Problem(models.Model):
     id = models.IntegerField(unique=True, primary_key=True)
     title = models.TextField(max_length=64)
-    content = models.TextField()
-    input_sample = models.TextField()
-    output_sample = models.TextField()
+    content = models.TextField(verbose_name='题目描述')
+    input_sample = models.TextField(verbose_name='样例输入')
+    output_sample = models.TextField(verbose_name='样例输出')
 
     add_time = models.DateTimeField(default=datetime.now)
     # 编译时间，非添加时间
@@ -99,7 +99,8 @@ class SubmitRecord(models.Model):
     user_id = models.ForeignKey('User', on_delete=models.CASCADE)
     record = models.TextField(verbose_name='提交记录')
     status = models.CharField(max_length=8, choices=RECORD_STATUS)
-
+    language = models.CharField(max_length=16, default='python', verbose_name='语言',
+                                choices=(('python', 'Python'), ('cpp', 'C++'), ('java', 'Java')))
     add_time = models.DateTimeField(default=datetime.now)
 
     class Meta:

@@ -35,9 +35,9 @@ class ProblemAdmin(object):
 
 
 class SubmitRecordAdmin(object):
-    list_display = ('id', 'problem_id', 'user_id', 'record', 'status', 'add_time')
-    search_fields = ('id', 'problem_id', 'user_id', 'record', 'status')
-    list_filter = ('id', 'problem_id__id', 'user_id__id', 'record', 'status', 'add_time')
+    list_display = ('id', 'problem_id', 'user_id', 'record', 'status', 'add_time', 'language')
+    search_fields = ('id', 'problem_id', 'user_id', 'record', 'status', 'language')
+    list_filter = ('id', 'problem_id__id', 'user_id__id', 'record', 'status', 'add_time', 'language')
 
 
 xadmin.site.register(VerifyCode, VerifyCodeAdmin)
