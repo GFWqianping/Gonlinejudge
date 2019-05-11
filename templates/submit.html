@@ -1,0 +1,59 @@
+{% extends 'question_home.html' %}
+{% block custom_bread %}
+<section>
+	<div class="wp">
+		<ul  class="crumbs">
+			<li><a href="/">首页</a>></li>
+            <li><a href="{% url 'record' %}">提交</a>></li>
+		</ul>
+	</div>
+</section>
+{% endblock %}
+{% block table %}
+    <thead>
+        <th class="idr"><strong>提交日期</strong></th>
+        <th class="rater"><strong>状态</strong></th>
+        <th class="rater"><strong>题名</strong></th>
+        <th class="diffr"><strong>语言</strong></th>
+        <th class="diffr"><strong>用户</strong></th>
+    </thead>
+    <tbody>
+        {% for record in records.object_list %}
+            <tr>
+                <td class="time">{{ record.add_time }}</td>
+                <td class="rater">{{ record }}</td>
+                <td class="titler">
+                    <a href="/question/{{ record.problem.id }}/">
+                        {{ record.problem }}</a>
+                </td>
+                <td class="rater">{{ record.language }}</td>
+                <td class="diffr">{{ record.user }}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+{% endblock %}
+{% block page_turn %}
+<div class="pageturn">
+            <ul class="pagelist">
+                {% if records.has_previous %}
+                    <li class="long"><a href="?{{ records.previous_page_number.querystring }}">上一页</a></li>
+                {% endif %}
+
+                {% for page in records.pages %}
+                    {% if page %}
+                        {% ifequal page records.number %}
+                            <li class="active"><a href="?{{ page.querystring }}">{{ page }}</a></li>
+                        {% else %}
+                            <li><a href="?{{ page.querystring }}" class="page">{{ page }}</a></li>
+                        {% endifequal %}
+                    {% else %}
+                        <li class="none"><a href="">...</a></li>
+                    {% endif %}
+                {% endfor %}
+                {% if records.has_next %}
+                    <li class="long"><a href="?{{ records.next_page_number.querystring }}">下一页</a></li>
+                {% endif %}
+
+            </ul>
+        </div>
+{% endblock %}

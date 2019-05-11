@@ -22,6 +22,7 @@ import xadmin
 
 from apps.online_judge.views import LoginView, RegisterView, ActiveUserView, ForgetPwdView,\
     ResetPwdView, ModifyPwdView, LogoutView, UserInfoView
+from apps.question_bank.views import SubmitRecordView
 
 urlpatterns = [
     path('xadmin/', xadmin.site.urls),
@@ -35,5 +36,6 @@ urlpatterns = [
     path('forget/', ForgetPwdView.as_view(), name='forget_pwd'),
     path('', TemplateView.as_view(template_name='index.html'), name='index'),
     path('user/', include('apps.online_judge.urls')),
-    path('question/', include('apps.question_bank.urls'))
+    path('question/', include('apps.question_bank.urls')),
+    path('record/', SubmitRecordView.as_view(), name='record'),
 ]

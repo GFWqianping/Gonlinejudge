@@ -92,13 +92,14 @@ class SubmitRecord(models.Model):
         (0, 'Accepted'),
         (1, 'Wrong Answer'),
         (2, 'Time Limit Exceeded'),
-        (3, 'Memory Limit Exceeded')
+        (3, 'Memory Limit Exceeded'),
+        (4, 'Waiting'),
     )
-    id = models.IntegerField(unique=True, primary_key=True)
-    problem_id = models.ForeignKey('Problem', on_delete=models.CASCADE)
-    user_id = models.ForeignKey('User', on_delete=models.CASCADE)
+    id = models.AutoField(unique=True, primary_key=True)
+    problem = models.ForeignKey('Problem', on_delete=models.CASCADE)
+    user = models.ForeignKey('User', on_delete=models.CASCADE)
     record = models.TextField(verbose_name='提交记录')
-    status = models.CharField(max_length=8, choices=RECORD_STATUS)
+    status = models.CharField(max_length=8, choices=RECORD_STATUS, default=4)
     language = models.CharField(max_length=16, default='python', verbose_name='语言',
                                 choices=(('python', 'Python'), ('cpp', 'C++'), ('java', 'Java')))
     add_time = models.DateTimeField(default=datetime.now)

@@ -9,7 +9,7 @@
 	<div class="wp">
 		<ul  class="crumbs">
 			<li><a href="/">首页</a>></li>
-            <li><a href="/">题库</a>></li>
+            <li><a href="/question/">题库</a>></li>
 		</ul>
 	</div>
 </section>
@@ -20,6 +20,7 @@
     <div class="left">
         <div class="listoptions">
             <table class="problemlist">
+            {% block table %}
                 <thead>
                     <th class="idr"><strong>#</strong></th>
                     <th class="titler"><strong>题名</strong></th>
@@ -31,18 +32,24 @@
                         <tr>
                             <td class="idr">{{ problem.id }}</td>
                             <td class="titler">
-                                <a href="">{{ problem.title }}</a>
+                                <a href="/question/{{ problem.id }}/">
+                                    {{ problem.title }}</a>
                             </td>
                             <td class="rater">{{ problem.pass_rate }}</td>
                             <td class="diffr">{{ problem.difficulty }}</td>
                         </tr>
                     {% endfor %}
                 </tbody>
+                {% endblock %}
             </table>
         </div>
     </div>
 </div>
- <div class="pageturn">
+</section>
+{% endblock %}
+{% block page_turn %}
+<section>
+<div class="pageturn">
             <ul class="pagelist">
                 {% if problems.has_previous %}
                     <li class="long"><a href="?{{ problems.previous_page_number.querystring }}">上一页</a></li>
