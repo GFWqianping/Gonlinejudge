@@ -1,16 +1,16 @@
 import json
-
 from django.views.generic.base import View
-from django.shortcuts import render
+from django.shortcuts import render, render_to_response
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.backends import ModelBackend
 from django.db.models import Q
 from django.contrib.auth.hashers import make_password
 from django.http import HttpResponse
 
-from .models import User, EmailVerifyCode
+from .models import User, EmailVerifyCode, SubmitRecord
 from .forms import LoginForm, RegisterForm, ForgetForm, ModifyPwdForm, UserInfoForm, ChangeImageForm, ChangePwdForm
 from utils.email_send import send_register_email
+from utils.page_turn import page_turn
 
 
 class CustomBackend(ModelBackend):
@@ -193,3 +193,15 @@ class ChangeImageView(LogoutView, View):
         else:
             return HttpResponse('{"status":"fail"}', content_type='application/json')
 
+
+class ShowRecords(View):
+
+    def get(self, request):
+        user = request.user
+        all_records = SubmitRecord.objects.filter(user=user)
+        request, records = page_turn(request, all_records, per_page=2)
+
+        return render_to_response('user_records.html', {
+            'request': request,
+            'records': records
+        })
