@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% if status == 'success' %}
+    <h1>{{ msg }}</h1>
+    <button style="height: 50px; width: 120px; font-size: 18px"><a href="{% url 'login' %}">重新登录</a></button>
+{% else %}
+    <h1>{{ msg }}</h1>
+    <button style="height: 50px; width: 120px; font-size: 18px"><a href="{% url 'user_info' %}">返回修改</a></button>
+{% endif %}
+<h1></h1>
+</body>
+</html>

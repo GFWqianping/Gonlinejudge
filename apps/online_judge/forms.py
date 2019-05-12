@@ -7,13 +7,13 @@ from .models import User
 
 class LoginForm(forms.Form):
     username = forms.CharField(required=True)
-    password = forms.CharField(required=True, min_length=8)
+    password = forms.CharField(required=True, min_length=4)
 
 
 class RegisterForm(forms.Form):
     email = forms.EmailField(required=True)
     username = forms.CharField(required=True)
-    password = forms.CharField(required=True, min_length=8)
+    password = forms.CharField(required=True, min_length=4)
     captcha = CaptchaField(error_messages={'invalid': '验证码错误'})
 
 
@@ -27,6 +27,11 @@ class ModifyPwdForm(forms.Form):
     password1 = forms.CharField(required=True, min_length=4)
     password2 = forms.CharField(required=True, min_length=4)
     captcha = CaptchaField(error_messages={'invalid': '验证码错误'})
+
+
+class ChangePwdForm(forms.Form):
+    password1 = forms.CharField(required=True, min_length=4)
+    password2 = forms.CharField(required=True, min_length=4)
 
 
 class UserInfoForm(forms.Form):

@@ -22,18 +22,18 @@
 		<div  class="header2 header">
  			<div class="top">
 				<div class="wp">
-					<div class="fl"><p>服务电话：<b>33333333</b></p></div>
+					<div class="fl"><p>Gonline judge</p></div>
 					<!--登录后跳转-->
                     
                         
                         <div class="personal">
                             <dl class="user fr">
                                 <dd>{{ request.user }}<img class="down fr" src="{% static 'images/top_down.png' %}"/></dd>
-                                <dt><img width="20" height="20" src="{% static 'media/image/2016/12/default_big_14.png' %}"/></dt>
+                                <dt><img width="20" height="20" src="{% static 'media/' %}{{ request.user.image }}"/></dt>
                             </dl>
                             <div class="userdetail">
                             	<dl>
-	                                <dt><img width="80" height="80" src="{% static 'media/image/2016/12/default_big_14.png' %}"/></dt>
+	                                <dt><img width="80" height="80" src="{% static 'media/' %}{{ request.user.image }}"/></dt>
 	                                <dd>
 	                                    <h2>{{ request.user }}</h2>
 	                                    <p>{{ request.user.email }}</p>
@@ -76,14 +76,8 @@
 	<div class="wp list personal_list">
 	<div class="left">
         <ul>
-            <li class="active2"><a href="usercenter-info.html">个人资料</a></li>
-            <li ><a href="usercenter-mycourse.html">我的课程</a></li>
-            <li ><a href="usercenter-fav-course.html">我的收藏</a></li>
-            <li >
-                <a href="usercenter-message.html" style="position: relative;">
-                    我的消息
-                </a>
-            </li>
+            <li class="active2"><a href="{% url 'user_info' %}">个人信息</a></li>
+            <li ><a href="usercenter-mycourse.html">我的提交记录</a></li>
         </ul>
 	</div>
 
@@ -99,7 +93,7 @@
                     <form class="clearfix" id="jsAvatarForm" enctype="multipart/form-data" autocomplete="off" method="post" action="{% url 'change_img' %}" target='frameFile'>
                         <label class="changearea" for="avatarUp">
                             <span id="avatardiv" class="pic">
-                                <img width="100" height="100" class="js-img-show" id="avatarShow" src="{{ MEDIA_URL }}{{ request.user.image }}"/>
+                                <img width="100" height="100" class="js-img-show" id="avatarShow" src="{% static 'media/' %}{{ request.user.image }}"/>
                             </span>
                             <span class="fl upload-inp-box" style="margin-left:70px;">
                                 <span class="button btn-green btn-w100" id="jsAvatarBtn">修改头像</span>
@@ -115,23 +109,30 @@
 				</div>
 				<form class="perinform" id="jsEditUserForm" autocomplete="off" action="{% url 'user_info' %}" method="post">
 					<ul class="right">
-                        <li>
-                            <input type="hidden" name="username" value="{{ request.user }}">
+                        <li>用&nbsp;&nbsp;户&nbsp;&nbsp;名:&nbsp;&nbsp;
+                            <input type="text" name="username" readonly="readonly" value="{{ request.user.username }}">
                         </li>
 						<li>昵&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;称：
                            <input type="text" name="nick_name" id="nick_name" value="{{ request.user.nick_name }}" maxlength="16">
                             <i class="error-tips"></i>
                         </li>
+                         {% if  request.user.gender == 'male' %}
 						<li>性&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;别：
-							<label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio"  name="gender" value="male" >男</label>
+							<label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio"  name="gender" value="male"  checked="checked">男</label>
+							<label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="gender" value="female">女</label>
+						</li>
+
+                         {% elif request.user.gender == 'female'%}
+                        <li>性&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;别：
+							<label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio"  name="gender" value="male"  >男</label>
 							<label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="gender" value="female" checked="checked">女</label>
 						</li>
+                        {% endif %}
 						<li>手&nbsp;&nbsp;机&nbsp;&nbsp;号：
                             <input type="text" name="phone_num" id="phone" placeholder="请输入你的手机号码" value="{{ request.user.phone_number }}" maxlength="16">
                         </li>
                         <li>邮&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;箱：
                         	<input class="borderno" type="text" name="email" readonly="readonly" value="{{ request.user.email }}"/>
-                            <span class="green changeemai_btn">[修改]</span>
                     	</li>
                         <input class="error btns" id="jsEmailTips" />
                         {% for key, error in user_info_form.errors.items %}{{ error }}{% endfor %}
@@ -186,20 +187,19 @@
         <h1>修改密码</h1>
         <div class="close jsCloseDialog"><img src="{% static 'images/dig_close.png' %}"/></div>
         <div class="cont">
-            <form id="jsResetPwdForm" autocomplete="off" method="post" action="{% url 'change_pwd' %}">
-                <div class="box">
-                    <span class="word2" >新&nbsp;&nbsp;密&nbsp;&nbsp;码</span>
-                    <input type="password" id="pwd" name="password1" placeholder="6-20位非中文字符"/>
+            <form action="{% url 'change_pwd' %}" method="post">
+                <div style="height: 50px; font-size:20px">
+                    <span>新&nbsp;密&nbsp;码&nbsp;</span>
+                    <input type="password" name="password1" placeholder="6-20位非中文字符"/>
                 </div>
-                <div class="box">
+                <div style="height: 50px; font-size: 20px">
                     <span class="word2" >确定密码</span>
-                    <input type="password" id="repwd" name="password2" placeholder="6-20位非中文字符"/>
+                    <input type="password" name="password2" placeholder="6-20位非中文字符"/>
                 </div>
-                <div class="error btns" id="jsResetPwdTips"></div>
                 <div class="button">
-                    <input id="jsResetPwdBtn" type="button" value="提交" />
+                    <input type="submit" value="提交" />
                 </div>
-               {% csrf_token %}
+                {% csrf_token %}
             </form>
         </div>
     </div>

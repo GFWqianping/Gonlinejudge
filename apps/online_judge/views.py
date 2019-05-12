@@ -9,7 +9,7 @@ from django.contrib.auth.hashers import make_password
 from django.http import HttpResponse
 
 from .models import User, EmailVerifyCode
-from .forms import LoginForm, RegisterForm, ForgetForm, ModifyPwdForm, UserInfoForm, ChangeImageForm
+from .forms import LoginForm, RegisterForm, ForgetForm, ModifyPwdForm, UserInfoForm, ChangeImageForm, ChangePwdForm
 from utils.email_send import send_register_email
 
 
@@ -168,19 +168,19 @@ class UserInfoView(LogoutView, View):
 
 class ChangePwdView(View):
     def post(self, request):
-        change_pwd_form = ModifyPwdForm(request.POST)
+        change_pwd_form = ChangePwdForm(request.POST)
         if change_pwd_form.is_valid():
             pwd1 = request.POST.get("password1", "")
             pwd2 = request.POST.get("password2", "")
             if pwd1 != pwd2:
-                return HttpResponse('{"status":"fail","msg":"密码不一致"}', content_type='application/json')
+                return render(request, 'chang_pwd_result.html', {'status': 'failure', 'msg': '密码不一致'})
             user = request.user
             user.password = make_password(pwd2)
             user.save()
 
-            return HttpResponse('{"status":"success"}', content_type='application/json')
+            return render(request, 'chang_pwd_result.html', {'status': 'success', 'msg': '修改成功请重新登录'})
         else:
-            return HttpResponse(json.dumps(change_pwd_form.errors), content_type='application/json')
+            return render(request, 'chang_pwd_result.html', {'status': 'failure', 'msg': change_pwd_form.errors})
 
 
 class ChangeImageView(LogoutView, View):
