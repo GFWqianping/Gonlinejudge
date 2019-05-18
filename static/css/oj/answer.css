@@ -70,6 +70,7 @@ h2{
     margin: 20px;
     float: right;
     font-size: 30px;
+    width: 800px;
 }
 .left div{
     margin: 20px 10px;
@@ -87,7 +88,23 @@ h2{
     padding: 6px;
     border:2px solid lightgrey;
     border-radius:7px;
+    float: right;
 }
 .empty-line{
     height: 10px;
+}
+.p_status_a{
+    color: #ffffff;
+    background-color: #00ad29;
+}
+.p_status_w{
+    color: white;
+    background-color: red;
+}
+.submit-line span{
+    padding: 6px;
+    border:2px solid lightgrey;
+    border-radius:7px;
+    font-size: 7px;
+    margin: 10px 30px;
 }

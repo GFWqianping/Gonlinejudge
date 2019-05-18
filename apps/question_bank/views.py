@@ -40,7 +40,7 @@ class AnswerView(View):
 
     def get(self, request, pk):
         problem = ProgrammingProblem.objects.get(id=pk)
-        return render(request, 'question_mirror_answer.html', {'problem': problem, 'pk': pk})
+        return render(request, 'question_mirror_answer.html', {'problem': problem, 'pk': pk, 'submitted': False})
 
     def post(self, request, pk):
         lang = request.POST.get('lang', '')
@@ -53,6 +53,7 @@ class AnswerView(View):
         submission_id = resp.json().get('data').get('submission_id')
         time.sleep(2)
         result = get_results(submission_id)
+        status = result.get('result')
 
         sub_record = SubmitRecord()
         sub_record.status = result.get('result')
@@ -63,12 +64,16 @@ class AnswerView(View):
         sub_record.memory_cost = result.get('statistic_info').get('memory_cost')
         sub_record.time_cost = result.get('statistic_info').get('time_cost')
         sub_record.save()
-        return render(request, 'question_mirror_answer.html')
+        problem = ProgrammingProblem.objects.get(id=pk)
+        return render(request, 'question_mirror_answer.html',
+                      {'submitted': True, 'record': sub_record, 'problem': problem, 'pk': pk})
 
 
 class SubmitRecordView(View):
     def get(self, request):
         all_records = SubmitRecord.objects.all()
+        all_records = sorted(all_records, key=lambda x: x.add_time, reverse=True)
+        # 记录按提交时间排序
         try:
             page = request.GET.get('page', 1)
         except PageNotAnInteger:

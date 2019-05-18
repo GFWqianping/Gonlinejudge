@@ -1,4 +1,5 @@
 {% extends 'question_home.html' %}
+
 {% block custom_bread %}
 <section>
 	<div class="wp">
@@ -16,18 +17,36 @@
         <th class="rater"><strong>题名</strong></th>
         <th class="diffr"><strong>语言</strong></th>
         <th class="diffr"><strong>用户</strong></th>
+        <th class="diffr"><strong>运行时间</strong></th>
+        <th class="diffr"><strong>内存</strong></th>
     </thead>
     <tbody>
         {% for record in records.object_list %}
             <tr>
-                <td class="time">{{ record.add_time }}</td>
-                <td class="rater">{{ record }}</td>
+                <td>{{ record.add_time|date:"Y-m-d H:i:s" }}</td>
+                {% if record.status == '0' %}
+                    <td class="p_status_a">Accepted</td>
+                {% elif record.status == '-1'%}
+                    <td class="p_status_w">Wrong Answer</td>
+                {% elif record.status == '3'%}
+                    <td class="p_status_w">Memory Limit Exceeded</td>
+                {% elif record.status == '4'%}
+                    <td class="p_status_w">Runtime Error</td>
+                {% elif record.status == '5'%}
+                    <td class="p_status_w">System Error</td>
+                {% elif record.status == '6'%}
+                    <td class="p_status_w">Waiting And Refresh</td>
+                {% else %}
+                    <td class="p_status_w">Time Limit Exceeded</td>
+                {% endif %}
                 <td class="titler">
                     <a href="/question/{{ record.problem_id.id }}/">
                         {{ record.problem_id}}</a>
                 </td>
                 <td class="rater">{{ record.language }}</td>
                 <td class="diffr">{{ record.user_id }}</td>
+                <td class="diffr">{{ record.time_cost }}ms</td>
+                <td class="diffr">{% widthratio record.memory_cost 1000000 1 %}MB</td>
             </tr>
         {% endfor %}
     </tbody>

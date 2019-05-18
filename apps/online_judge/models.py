@@ -93,7 +93,7 @@ class SubmitRecord(models.Model):
         (0, 'ACCEPTED'),
         (1, 'CPU_TIME_LIMIT_EXCEEDED'),
         (2, 'REAL_TIME_LIMIT_EXCEEDED'),
-        (3, 'Memory Limit Exceeded'),
+        (3, 'MEMORY_LIMIT_EXCEEDED'),
         (4, 'RUNTIME_ERROR'),
         (5, 'SYSTEM_ERROR'),
         (6, 'WAITING'),

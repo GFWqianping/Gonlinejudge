@@ -15,10 +15,11 @@
             <div class="content-h">
                 <span>Main</span>
                 <div>
-                    <input type="radio" name="lang" id="lang" value="htmlmixed" />HTML
+                    <input type="radio" name="lang" id="lang" value="Python2" />Python2
                     <input type="radio" name="lang" id="lang" value="Python3" checked/>Python3
                     <input type="radio" name="lang" id="lang" value="Java"/>Java
                     <input type="radio" name="lang" id="lang" value="C++"/>C++
+                    <input type="radio" name="lang" id="lang" value="C" />C
                 </div>
             </div>
             <div class="content-b">
@@ -27,6 +28,13 @@
             </div>
         </div>
         <div class="submit-line">
+            {% if submitted %}
+                {% if record.status %}
+                    <span class="p_status_w">{{ record.get_status_display }}</span>
+                {% else %}
+                    <span class="p_status_a">{{ record.get_status_display }}</span>
+                {% endif %}
+            {% endif %}
             <input type="submit" value="提交">
         </div>
         {% csrf_token %}
