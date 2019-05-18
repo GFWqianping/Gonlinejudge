@@ -198,7 +198,7 @@ class ShowRecords(View):
 
     def get(self, request):
         user = request.user
-        all_records = SubmitRecord.objects.filter(user=user)
+        all_records = SubmitRecord.objects.filter(user_id=user)
         request, records = page_turn(request, all_records, per_page=2)
 
         return render_to_response('user_records.html', {

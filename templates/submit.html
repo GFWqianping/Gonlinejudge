@@ -23,11 +23,11 @@
                 <td class="time">{{ record.add_time }}</td>
                 <td class="rater">{{ record }}</td>
                 <td class="titler">
-                    <a href="/question/{{ record.problem.id }}/">
-                        {{ record.problem }}</a>
+                    <a href="/question/{{ record.problem_id.id }}/">
+                        {{ record.problem_id}}</a>
                 </td>
                 <td class="rater">{{ record.language }}</td>
-                <td class="diffr">{{ record.user }}</td>
+                <td class="diffr">{{ record.user_id }}</td>
             </tr>
         {% endfor %}
     </tbody>

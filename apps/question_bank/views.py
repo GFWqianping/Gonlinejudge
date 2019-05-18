@@ -1,3 +1,4 @@
+import time
 from django.shortcuts import render, render_to_response
 from django.views import View
 
@@ -5,6 +6,7 @@ from pure_pagination import Paginator, EmptyPage, PageNotAnInteger
 
 from question_bank.models import ProgrammingProblem
 from apps.online_judge.models import SubmitRecord, User
+from apps.utils.judger_to import code_to_judger, get_results
 # Create your views here.
 
 
@@ -38,21 +40,28 @@ class AnswerView(View):
 
     def get(self, request, pk):
         problem = ProgrammingProblem.objects.get(id=pk)
-        return render(request, 'answer.html', {'problem': problem, 'pk': pk})
+        return render(request, 'question_mirror_answer.html', {'problem': problem, 'pk': pk})
 
     def post(self, request, pk):
         lang = request.POST.get('lang', '')
-        user_codes = request.POST.get('user_codes', '')
+        user_codes = request.POST.get('code', '')
         user_id = request.user.id
         user = User.objects.get(id=user_id)
         problem = ProgrammingProblem.objects.get(id=pk)
+
+        resp = code_to_judger(problem_id=pk, language=lang, code=user_codes)
+        submission_id = resp.json().get('data').get('submission_id')
+        time.sleep(2)
+        result = get_results(submission_id)
+
         sub_record = SubmitRecord()
+        sub_record.status = result.get('result')
         sub_record.language = lang
         sub_record.problem_id = problem
         sub_record.user_id = user
         sub_record.record = user_codes
         sub_record.save()
-        return SubmitRecord.get(request)
+        return render(request, 'question_mirror_answer.html')
 
 
 class SubmitRecordView(View):
@@ -62,7 +71,7 @@ class SubmitRecordView(View):
             page = request.GET.get('page', 1)
         except PageNotAnInteger:
             page = 1
-        p = Paginator(all_records, per_page=2, request=request)
+        p = Paginator(all_records, per_page=5, request=request)
         # per_page 每页条数
 
         records = p.page(page)
@@ -71,3 +80,8 @@ class SubmitRecordView(View):
             'records': records,
             'request': request
         })
+
+
+class TestView(View):
+    def get(self, request):
+        return render(request, 'question_mirror_answer.html')

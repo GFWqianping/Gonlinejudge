@@ -10,3 +10,5 @@ apps/utils/__pycache__/
 venv/
 media/image
 image/
+package-lock.json
+node_modules/

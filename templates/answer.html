@@ -43,16 +43,14 @@
 				<div class="nav">
 					<div class="wp">
 						<ul>
-							<li {% if request.path == '/' %}class="active" {% endif %}><a href="{% url 'index' %}">首页</a></li>
-							<li {% if request.path|slice:'7' == '/course' %}class="active"{% endif %}>
+							<li class="active" ><a href="{% url 'index' %}">首页</a></li>
+							<li >
 								<a href="{% url 'question_home' %}">
 									题库
 								</a>
 							</li>
-							<li {% if request.path|slice:'12' == '/org/teacher' %}class="active"{% endif %}>
-								<a href="">授课教师</a>
-							</li>
-							<li {% if request.path|slice:'9' == '/org/list' %}class="active" {% endif %}><a href="">授课机构</a></li>
+							<li ><a href="{% url 'record' %}">提交记录</a></li>
+						</ul>
 						</ul>
 					</div>
 				</div>
@@ -103,13 +101,13 @@
 
                     </div>
                     <div class="right">
+                        {% block answer_right %}
                         <form action="/question/{{ pk }}/" method="post">
                             <div class="content">
                                 <div class="content-h">
                                     <span>Main</span>
                                     <div>
-                                        <input type="radio" name="lang" value="python2"/>Python2
-                                        <input type="radio" name="lang" value="python3" checked/>Python3
+                                        <input type="radio" name="lang" value="python" checked/>Python
                                         <input type="radio" name="lang" value="java"/>Java
                                         <input type="radio" name="lang" value="cpp"/>C++
                                     </div>
@@ -124,7 +122,7 @@
                             </div>
                             {% csrf_token %}
                         </form>
-
+                        {% endblock %}
                     </div>
 
                 </div>
