@@ -60,6 +60,8 @@ class AnswerView(View):
         sub_record.problem_id = problem
         sub_record.user_id = user
         sub_record.record = user_codes
+        sub_record.memory_cost = result.get('statistic_info').get('memory_cost')
+        sub_record.time_cost = result.get('statistic_info').get('time_cost')
         sub_record.save()
         return render(request, 'question_mirror_answer.html')
 

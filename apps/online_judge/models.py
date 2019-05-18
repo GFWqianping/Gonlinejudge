@@ -89,19 +89,25 @@ class SubmitRecord(models.Model):
     提交记录
     """
     RECORD_STATUS = (
-        (0, 'Accepted'),
-        (1, 'Wrong Answer'),
-        (2, 'Time Limit Exceeded'),
+        (-1, 'WRONG_ANSWER'),
+        (0, 'ACCEPTED'),
+        (1, 'CPU_TIME_LIMIT_EXCEEDED'),
+        (2, 'REAL_TIME_LIMIT_EXCEEDED'),
         (3, 'Memory Limit Exceeded'),
-        (4, 'Waiting'),
+        (4, 'RUNTIME_ERROR'),
+        (5, 'SYSTEM_ERROR'),
+        (6, 'WAITING'),
     )
-    id = models.AutoField(unique=True, primary_key=True)
+    id = models.CharField(primary_key=True, unique=True, max_length=32)
     problem_id = models.ForeignKey('Problem', on_delete=models.CASCADE)
     user_id = models.ForeignKey('User', on_delete=models.CASCADE)
     record = models.TextField(verbose_name='提交记录')
-    status = models.CharField(max_length=8, choices=RECORD_STATUS, default=4)
+    status = models.CharField(max_length=8, choices=RECORD_STATUS, default=6)
     language = models.CharField(max_length=16, default='python', verbose_name='语言',
-                                choices=(('python', 'Python'), ('cpp', 'C++'), ('java', 'Java')))
+                                choices=(('Python3', 'Python3'), ('C++', 'C++'),
+                                         ('Java', 'Java'), ('C', 'C'), ('Python2', 'Python2')))
+    time_cost = models.IntegerField(default=0)
+    memory_cost = models.IntegerField(default=0)
     add_time = models.DateTimeField(default=datetime.now)
 
     class Meta:
