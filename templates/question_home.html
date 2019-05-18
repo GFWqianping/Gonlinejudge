@@ -26,6 +26,7 @@
                     <th class="titler"><strong>题名</strong></th>
                     <th class="rater"><strong>通过率</strong></th>
                     <th class="diffr"><strong>难度</strong></th>
+                    <th class="diffr"><strong>热度</strong></th>
                 </thead>
                 <tbody>
                     {% for problem in problems.object_list %}
@@ -35,8 +36,9 @@
                                 <a href="/question/{{ problem.id }}/">
                                     {{ problem.title }}</a>
                             </td>
-                            <td class="rater">{{ problem.pass_rate }}</td>
-                            <td class="diffr">{{ problem.difficulty }}</td>
+                            <td class="rater">{% widthratio problem.pass_rate 1 100 %}%</td>
+                            <td class="diffr">{{ problem.get_difficulty_display }}</td>
+                            <td class="diffr">{{ problem.heat }}</td>
                         </tr>
                     {% endfor %}
                 </tbody>

@@ -46,7 +46,7 @@
                 <td class="rater">{{ record.language }}</td>
                 <td class="diffr">{{ record.user_id }}</td>
                 <td class="diffr">{{ record.time_cost }}ms</td>
-                <td class="diffr">{% widthratio record.memory_cost 1000000 1 %}MB</td>
+                <td class="diffr">{{ record.memory_cost|filesizeformat }}</td>
             </tr>
         {% endfor %}
     </tbody>

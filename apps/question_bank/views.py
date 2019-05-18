@@ -56,7 +56,8 @@ class AnswerView(View):
         status = result.get('result')
 
         sub_record = SubmitRecord()
-        sub_record.status = result.get('result')
+        sub_record.id = submission_id
+        sub_record.status = status
         sub_record.language = lang
         sub_record.problem_id = problem
         sub_record.user_id = user
@@ -65,6 +66,8 @@ class AnswerView(View):
         sub_record.time_cost = result.get('statistic_info').get('time_cost')
         sub_record.save()
         problem = ProgrammingProblem.objects.get(id=pk)
+        problem.info_update(status)
+
         return render(request, 'question_mirror_answer.html',
                       {'submitted': True, 'record': sub_record, 'problem': problem, 'pk': pk})
 
@@ -89,6 +92,3 @@ class SubmitRecordView(View):
         })
 
 
-class TestView(View):
-    def get(self, request):
-        return render(request, 'question_mirror_answer.html')
