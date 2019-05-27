@@ -49,7 +49,7 @@ class VerifyCode(models.Model):
 
 class EmailVerifyCode(models.Model):
     """
-    短信验证码
+    电子邮件验证码
     """
     code = models.CharField(max_length=16, verbose_name='验证码')
     email = models.EmailField(max_length=64, verbose_name='邮箱')

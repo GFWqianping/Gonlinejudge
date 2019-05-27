@@ -45,7 +45,7 @@
                     {% for record in records.object_list %}
                         <tr>
                             <td class="time">{{ record.add_time }}</td>
-                            <td class="rater">{{ record }}</td>
+                            <td class="rater">{{ record.get_status_display }}</td>
                             <td class="titler">
                                 <a href="/question/{{ record.problem_id.id }}/">
                                     {{ record.problem_id }}</a>

@@ -1,7 +1,7 @@
 import xadmin
 from xadmin import views
 
-from .models import VerifyCode,  SubmitRecord
+from .models import EmailVerifyCode,  SubmitRecord
 
 
 class BaseSetting(object):
@@ -22,10 +22,10 @@ class UserAdmin(object):
     list_filter = ('id', 'name', 'email', 'password', 'gender', 'phone_number', 'add_time')
 
 
-class VerifyCodeAdmin(object):
-    list_display = ('code', 'phone_number', 'add_time')
-    search_fields = ('code', 'phone_number')
-    list_filter = ('code', 'phone_number', 'add_time')
+class EmailVerifyCodeAdmin(object):
+    list_display = ('code', 'email', 'send_type', 'add_time')
+    search_fields = ('code', 'email', 'send_type')
+    list_filter = ('code', 'email', 'send_type', 'add_time')
 
 
 class ProblemAdmin(object):
@@ -40,7 +40,7 @@ class SubmitRecordAdmin(object):
     list_filter = ('id', 'problem_id__id', 'user_id__id', 'record', 'status', 'add_time', 'language')
 
 
-xadmin.site.register(VerifyCode, VerifyCodeAdmin)
+xadmin.site.register(EmailVerifyCode, EmailVerifyCodeAdmin)
 xadmin.site.register(SubmitRecord, SubmitRecordAdmin)
 xadmin.site.register(views.BaseAdminView, BaseSetting)
 xadmin.site.register(views.CommAdminView, GlobalSettings)
