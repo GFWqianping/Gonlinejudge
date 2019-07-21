@@ -49,7 +49,7 @@
     <script type="text/javascript" src="{% static 'CodeMirror-master/lib/codemirror.js' %}"></script>
 
     <!-- CodeMirror支持不同语言，根据需要引入JS文件 -->
-    <!-- 因为HTML混合语言依赖Javascript、XML、CSS语言支持，所以都要引入 -->
+    <!-- 因为HTML混合语言依赖Javascript、XML、CSS语言支持，所以都<!入 -->
     <script type="text/javascript" src="{% static 'CodeMirror-master/mode/javascript/javascript.js' %}"></script>
     <script type="text/javascript" src="{% static 'CodeMirror-master/mode/xml/xml.js' %}"></script>
     <script type="text/javascript" src="{% static 'CodeMirror-master/mode/css/css.js' %}"></script>
@@ -77,7 +77,7 @@
             indentUnit: 4,         // 缩进单位为4
             styleActiveLine: true, // 当前行背景高亮
             matchBrackets: true,   // 括号匹配
-            mode: 'python',     // python模式
+            mode: 'clike',     // python模式
             lineWrapping: true,    // 自动换行
             theme: 'monokai',      // 使用monokai模版
             {#value: {{ record.record }}#}

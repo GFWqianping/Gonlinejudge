@@ -25,7 +25,7 @@ class QuestionHomeView(View):
         except PageNotAnInteger:
             page = 1
 
-        p = Paginator(all_problems, per_page=1, request=request)
+        p = Paginator(all_problems, per_page=5, request=request)
         # per_page 每页条数
 
         problems = p.page(page)

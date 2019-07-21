@@ -106,8 +106,8 @@ class SubmitRecord(models.Model):
     language = models.CharField(max_length=16, default='python', verbose_name='语言',
                                 choices=(('Python3', 'Python3'), ('C++', 'C++'),
                                          ('Java', 'Java'), ('C', 'C'), ('Python2', 'Python2')))
-    time_cost = models.IntegerField(default=0)
-    memory_cost = models.IntegerField(default=0)
+    time_cost = models.CharField(default=0, max_length=16, null=True)
+    memory_cost = models.CharField(default=0, max_length=16, null=True)
     add_time = models.DateTimeField(default=datetime.now)
 
     class Meta:

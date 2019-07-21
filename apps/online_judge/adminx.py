@@ -23,9 +23,9 @@ class UserAdmin(object):
 
 
 class EmailVerifyCodeAdmin(object):
-    list_display = ('code', 'email', 'send_type', 'add_time')
+    list_display = ('code', 'email', 'send_type', 'send_time')
     search_fields = ('code', 'email', 'send_type')
-    list_filter = ('code', 'email', 'send_type', 'add_time')
+    list_filter = ('code', 'email', 'send_type', 'send_time')
 
 
 class ProblemAdmin(object):
