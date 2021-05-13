@@ -24,7 +24,7 @@ sys.path.insert(0, os.path.join(BASE_DIR, 'extra_apps'))
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'utd*#6nn^0)#5y@b&shwd%lx9o8nep8m8tvxx*$@fl25u$*v!d'
+SECRET_KEY = 'xx'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -52,16 +52,6 @@ INSTALLED_APPS = [
     'xadmin',
     'crispy_forms',
     'captcha',
-]
-
-MIDDLEWARE = [
-    'django.middleware.security.SecurityMiddleware',
-    'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
 ROOT_URLCONF = 'Gonlinejudge.urls'
@@ -96,29 +86,10 @@ DATABASES = {
         'USER': 'wqp',
         'HOST': '127.0.0.1',
         'POST': '3306',
-        'PASSWORD': '1qaz2wsx',
+        'PASSWORD': 'xxx',
         'OPTIONS': {'init_command': 'SET default_storage_engine=INNODB;'}
     }
 }
-
-
-# Password validation
-# https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators
-
-AUTH_PASSWORD_VALIDATORS = [
-    {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
-    },
-]
 
 
 # Internationalization
@@ -138,19 +109,9 @@ USE_TZ = False
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
-STATIC_URL = '/static/'
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static'),
-    os.path.join(BASE_DIR, 'apps'),
-    os.path.join(BASE_DIR, 'extra_apps')
-)
-
 EMAIL_HOST = 'smtp.163.com'
 EMAIL_PORT = 25
 EMAIL_HOST_USER = 'wangtf_2015@163.com'
-EMAIL_HOST_PASSWORD = 'wqp123'
+EMAIL_HOST_PASSWORD = 'xx'
 EMAIL_USE_TLS = False
 EMAIL_FROM = 'wangtf_2015@163.com'
-
-MEDIA_URL = 'static/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'static/media')
